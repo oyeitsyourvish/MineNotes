@@ -113,7 +113,7 @@ else{
   </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img src="/crud/logo.svg" height="28px" alt=""></a>
+    <a class="navbar-brand" href="#"><img src="/32MineNotes/logo.png" height="28px" alt="Php"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -139,16 +139,18 @@ else{
     </div>
   </nav>
 
+  <!-- alert for add note successfully -->
   <?php
   if($insert){
     echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
-    <strong>Success!</strong> Your note has been inserted successfully
+    <strong>Success!</strong> Your note has been added successfully
     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
       <span aria-hidden='true'>×</span>
     </button>
   </div>";
   }
   ?>
+  <!-- alert for delete note successfully -->
   <?php
   if($delete){
     echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
@@ -159,6 +161,8 @@ else{
   </div>";
   }
   ?>
+
+  <!-- alert for edit note successfully -->
   <?php
   if($update){
     echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
@@ -198,6 +202,8 @@ else{
         </tr>
       </thead>
       <tbody>
+
+      <!-- php for show data in table -->
         <?php 
           $sql = "SELECT * FROM `notes`";
           $result = mysqli_query($conn, $sql);
@@ -237,6 +243,8 @@ else{
     });
   </script>
   <script>
+
+    // javascript for edit button
     edits = document.getElementsByClassName('edit');
     Array.from(edits).forEach((element) => {
       element.addEventListener("click", (e) => {
@@ -253,6 +261,8 @@ else{
       })
     })
 
+
+    // javascripts for delete button
     deletes = document.getElementsByClassName('delete');
     Array.from(deletes).forEach((element) => {
       element.addEventListener("click", (e) => {
@@ -261,7 +271,7 @@ else{
 
         if (confirm("Are you sure you want to delete this note!")) {
           console.log("yes");
-          window.location = `/crud/index.php?delete=${sno}`;
+          window.location = `/32MineNotes/index.php?delete=${sno}`;
           // TODO: Create a form and use post request to submit a form
         }
         else {
